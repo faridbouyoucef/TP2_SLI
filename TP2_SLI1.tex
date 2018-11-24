@@ -197,25 +197,35 @@ $$
 -4.4472 &  36.9886  & -3.3994 &   5.3447
 \end{matrix} 
 $$     
-
+\begin{equation*}
+      \left\{
+         \begin{aligned}
+           k\,\frac{\mathrm{d}T}{\mathrm{d}t}&=S(1-\alpha)-\sigma_{eff}T^4-k_w\frac{\mathrm{d}W_s}{\mathrm{d}t} & (1)\\
+           \frac{\mathrm{d}C_a}{\mathrm{d}t}&=-P+mC_s+e(t) & (2) \\
+           \frac{\mathrm{d}C_s}{\mathrm{d}t}&=P-mC_s & (3) \\
+           \frac{\mathrm{d}W_a}{\mathrm{d}t}&=-H+E & (4) \\
+           \frac{\mathrm{d}W_s}{\mathrm{d}t}&=H-E & (5)
+         \end{aligned}
+      \right.
+    \end{equation*}
 %\left\lbrace
 %\begin{array}{1}
-%\dot{x}=A.x+B.u \\
+%$dot{x}$=$$A.x+B.u \\
 %y=C.x+D.u 
-%\end{array}
+%\end{array}$$
 
 %\\
 
-$\dot{X}$=$$
-\begin{matrix}
-0&\frac{K_s}{9K_g}\\0&-\frac{1}{T_m}
-\end{matrix}x$$
-$$\quad+\quad
-\$begin{matrix}
-0\\
-\frac{K_mK_g}{T_m}
-\end{bmatrix}V_m
-$$
+%$\dot{X}$=$$
+%\begin{matrix}
+%0&\frac{K_s}{9K_g}\\0&-\frac{1}{T_m}
+%\end{matrix}x$$
+%$$\quad+\quad
+%\$begin{matrix}
+%0\\
+%\frac{K_mK_g}{T_m}
+%\end{matrix}V_m
+%$$
 %\\\\
 
 %avec $U=V_m , Y=v_s$, X est le vecteur d'état$\\
