@@ -241,7 +241,141 @@ $$
 %\label{fig1} 
 %\end{center}
 
+
+
+
+
+
+
+
+%%**********************Partie 3 *********************** 
+
+
+ \chapter{MISE EN PLACE D’UN RETOUR D’ÉTAT ET D’UN PRÉ-COMPENSATEUR}
+
+L'asservissement de position du système $S_{v_{m}\longmapsto v_{s}}$ , est réalisé selon la loi de commande par retour d'état :\\
+ $v_{m}(t)=Nk_{e}\theta_{r}(t)-Kx(t)=Nv_{r}(t)-Kx(t)$ , avec : $K=[k_{1} \hspace{2mm} k_{2}]$.\\\\
  
+ \section{Calcul des paramètre du retour d'état dans la base initial :}
+ 
+\subsection{Détermination de l'expression du système ($A_{bf}$, $B_{bf}$, $C_{bf}$ et $D_{bf}$) :}
+
+D'après notre système on a l'expression :\\
+\\\\
+$\dot{x}=Ax+Bv_{m}=Ax+B(Nv_{r}-Kx)=(A-BK)x+BNv_{r}$
+\\\\
+On obtient alors notre matrice dynamique \quad $A_{bf}$=(A-BK)\\
+\\
+et : \quad $B_{bf}$=B.N \\
+ et :\quad $C_{bf}$=[1 0] \\
+ et :\quad $D_{bf}$=[0] \\\\\\\\\\
+
+\subsection{L'expression de $A_{bf}$ en fonction de $[k_{1}$,$k_{2}]$ : }
+
+On a $A_{bf}$=(A-BK),  avec: $K=[k_{1} \hspace{2mm} k_{2}]$
+D'ou :\\\\
+$A_{bf}=
+\begin{bmatrix} 
+0 & \frac{K_{s}}{9K_{g}} \\
+-\frac{K_{g}K_{m}}{T_{m}}.k_{2} & -\frac{K_{g}K_{m}}{T_{m}}.k_{2}-\frac{1}{T_{m}}
+\end{bmatrix}$ \\\\
+
+\subsection{Justification la possibilité de placer les V.P de la matrice $A_{bf}$ et calcul de K :}
+
+On a les valeurs propres : $v_{1},v_{2}=-2.4\pm5.5j$ \\
+et:\\
+$A_{bf}=
+\begin{bmatrix} 
+0 & \frac{K_{s}}{9K_{g}} \\
+-\frac{K_{g}K_{m}}{T_{m}}.k_{2} & -\frac{K_{g}K_{m}}{T_{m}}.k_{2}-\frac{1}{T_{m}}
+\end{bmatrix}$ \\\\
+
+L'expression du polynôme caractéristique est:\\
+P($\lambda$)=$\lambda^2+(\frac{1}{T_{m}}-\frac{K_{g}K_{m}}{T_{m}}.k_{2})\lambda+\frac{K_{s}}{9K_{g}}.\frac{K_{g}K_{m}}{T_{m}}.k_{1}$\\\\
+
+On place les valeurs propres à $p_{1},p_{2}=-2.4\pm5.5j$\\
+
+On obtient alors le polynôme suivant: \\\\
+$(\lambda+2.4+5.5j)(\lambda+2.4-5.5j)={\lambda}^2+4.8\lambda+36.01$\\\\
+
+Et par identification avec le polynôme P($\lambda$) et en tenant compte des valeurs expérimentales de $K_{g} K_{m} K_{s}$ et$T_{m}$ , on trouve alors:  $k_1$=1.389à \quad $k_2$=0.5986 \hyperref[section1.1]{(voir Annexe)}\label{annexe1}\\
+
+
+
+\section{Calcul des paramètres du retour d'état en utilisant la forme compagne de commande :}
+
+\subsubsection{Loi de commande de la forme compagne de commande }
+
+\subsubsection{Déterminer l'expression du modèle}
+Le modèle d'espace d'état sous la forme compagne de commande est:\\
+\begin{itemize}
+Matrice d'état:$A_{cbf}=A_c-B_ck_c$\\
+\end{itemize}
+\begin{itemize}
+Matrice de commande:$B_{cbf}=B_cN$\\
+\end{itemize}
+\begin{itemize}
+Matrice de sortie:$C_{cbf}=C_c$ ;\quad Matrice de transfert $D_{cbf}=0$\\
+\end{itemize}
+\subsubsection{Expression de la matrice d'état ou matrice dynamique en fonction de K_{1c} et K_{2c}}
+\\
+Avant de déterminer la forme compagne de $A_{cbf}$, nous allons determiné la forme compagne de A et B (A_c,B_c).\\
+A partir de l'expression du polynôme caractéristique qui est: $ P(\lambda)=\lambda^2+\frac{1}{T_m}\lambda$, nous avons \\
+A_c=\begin{bmatrix}
+0&1\\
+0&-\frac{1}{T_m}
+\end{bmatrix}
+\quad B_c=\begin{bmatrix}
+0\\1
+\end{bmatrix}
+\\\\
+$A_{cbf}=A_c-B_ck_c$\\
+$A_{cbf}$=\begin{bmatrix}
+0&1\\
+0&-\frac{1}{T_m}
+\end{bmatrix}
+- \begin{bmatrix}
+0\\1
+\end{bmatrix}. \begin{bmatrix}
+K_{1c}&K_{2c}
+\end{bmatrix}
+\\\\
+\Longleftrightarrow \quad
+$A_{cbf}$=\begin{bmatrix}
+0&1\\
+-K_{1c}&-\frac{1}{T_m}.K_{2c}
+\end{bmatrix}
+\\
+Nous voulons placer les valeurs propres à $p_1,p_2=-2.4\pm 5.5j$
+on aura donc la caractéristique suivante:\\
+P(\lambda)={\lambda}^2+4.8\lambda+36.01\\
+
+par identification des élements des matrices on a:\\
+\begin{bmatrix}
+0&1\\
+-K_{1c}&-\frac{1}{T_m}.K_{2c}
+\end{bmatrix}=\begin{bmatrix}
+0&1\\
+-36.01&-4.8
+\end{bmatrix}
+\\\\
+  
+On trouve $K_{1c}=36.01$ et $K_{2c}=1.467$ avec de K_m=7 et T_m=0.3\\
+$K=K_c.P^{-1}$ \\
+\\
+Nous trouvons K=\begin{bmatrix}
+1.378&0.598
+\end{bmatrix}
+\\
+\\
+\begin{center}
+\Rightarrow N=1.38\\
+\end{center}
+	
+		
+		
+		
+
 
 
 %%******************* Coclusion
@@ -261,7 +395,62 @@ Ce TP nous a permet d'utiliser les différentes commandes de robustesse et a app
 
 \begin{appendices}
 \chapter*{Annexe 1}
+	\hyperref[annexe1]{(Retour)}\label{section1.1}
 	
+	
+\begin{lstlisting}
+	
+% Script TP MOTEUR
+
+	clear all
+	close all
+
+% Periode d'echantillonnage
+	Te = 0.01;
+
+% Modele du moteur :
+	Ke = 3.6/1000*60/(2*pi);
+
+	Km=7;
+	Tm=0.3;
+	Kc=3.5/100;
+	Kg = 0.105;
+	Ks=10;
+
+	A=[0 Ks/(9*Kg);0 (-1/Tm)];
+	B=[0; (Km*Kg)/Tm];
+	C=[1 0];
+	D=[0];
+
+	sys=ss(A,B,C,D);
+	Vp=eig(A);
+
+	Co=ctrb(sys);
+	rang_co=rank(Co);
+
+	Obs=obsv(sys);
+	rang_obs=rank(Obs);
+
+%%%%%%%%%%%partie 3.1*******
+	K=acker(A,B,[-2.4+5.5*i -2.4-5.5*i])
+
+%%%%% d'ou: K =[1.3890    0.5986]
+	K1=1.3890;
+	K2=0.5986;
+	Abf=[0 Ks/(9*Kg); -((Kg*Km)/Tm)*K1 -((Kg*Km)/Tm)*K2-(1/Tm)];
+	Bbf=[0; (Km*Kg)/Tm];
+	Cbf=[1 0];
+	Dbf=[0];
+
+	sys=ss(Abf,Bbf,Cbf,Dbf)
+	Vp1=eig(Abf)
+%%% on calcule les valeur propre de la nouvelle matrice et si ils sont
+%%%%%%% egale aux pole desire donc on est bien 
+%Vp1 = -2.4000 + 5.5001i
+ %    -2.4000 - 5.5001i
+		
+			    			
+	\end{lstlisting}	
 				
 \end{appendices}
 
