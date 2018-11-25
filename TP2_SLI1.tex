@@ -165,8 +165,8 @@ Les valeurs numériques des coefficients connus sont:\\
  $K_e=10(V.tr^-1)$	 \hfill		$K_s=10(V.tr^-1)$	\hfill		$Kg=0.105(V.s.tr^-1)$ 
  
  
-    \section{ÉTUDE PRÉLIMINAIRE DU PROCÉDÉ}
-     \subsection{Représentation et analyse de ensemble (moteur, réducteur, potentiomètre, génératrice        tachymétrique) pour le système $ {S_V}_m \rightarrow V_S$ }
+    \chapter{ PRÉLIMINAIRE DU PROCÉDÉ}
+     \section{Représentation et analyse de ensemble (moteur, réducteur, potentiomètre, génératrice        tachymétrique) pour le système $ {S_V}_m \rightarrow V_S$ }
  
 
 \begin{center}
@@ -178,7 +178,7 @@ Les valeurs numériques des coefficients connus sont:\\
 On considère le système en boucle ouverte l’entrée du système on boucle ouvert est $V_m(t)$ et la sortie mesurée $V_s(t)$, que l’on note  par $ {S_V}_m \rightarrow V_S$.
 
 
-\subsubsection{la représentation d’état de ce système, lorsque son vecteur d’état est défni par:}
+\subsection{la représentation d’état de ce système, lorsque son vecteur d’état est défni par:}
 
 
 \begin{equation}
@@ -192,54 +192,29 @@ $x_1=\frac{K_s}{9p}\frac{x_2}{K_g}$\\
 $\frac{x_2}{K_g}=\frac{K_m}{1+T_m}$
 \\
 \\
-$K_{haut}$=
-$$
-\begin{matrix}
--4.4472 &  36.9886  & -3.3994 &   5.3447
-\end{matrix} 
-$$     
+
 \begin{equation*}
-      \left\{
-         \begin{aligned}
-           k\,\frac{\mathrm{d}T}{\mathrm{d}t}&=S(1-\alpha)-\sigma_{eff}T^4-k_w\frac{\mathrm{d}W_s}{\mathrm{d}t} & (1)\\
-           \frac{\mathrm{d}C_a}{\mathrm{d}t}&=-P+mC_s+e(t) & (2) \\
-           \frac{\mathrm{d}C_s}{\mathrm{d}t}&=P-mC_s & (3) \\
-           \frac{\mathrm{d}W_a}{\mathrm{d}t}&=-H+E & (4) \\
-           \frac{\mathrm{d}W_s}{\mathrm{d}t}&=H-E & (5)
-         \end{aligned}
-      \right.
-    \end{equation*}
-%\left\lbrace
-%\begin{array}{1}
-%$dot{x}$=$$A.x+B.u \\
-%y=C.x+D.u 
-%\end{array}$$
+\left\{\begin{matrix}
+\dot{x}(t)=Ax(t)+Bu(t)\\ 
+y(t)=Cx(t)+Du(t)\\
+\end{matrix}\right.
+\end{equation*}   
 
-%\\
+%%%%%%%%%%%comment je vais faire les []%%%%%%%%%
+$\dot{X}$=$$\begin{matrix}0&\frac{K_s}{9K_g}\\0&-\frac{1}{T_m}\end{matrix}x$$
+\quad+\quad $$\begin{matrix}0
+\frac{K_mK_g}{T_m}
+\end{matrix}V_m
+$$
+\\\\
 
-%$\dot{X}$=$$
-%\begin{matrix}
-%0&\frac{K_s}{9K_g}\\0&-\frac{1}{T_m}
-%\end{matrix}x$$
-%$$\quad+\quad
-%\$begin{matrix}
-%0\\
-%\frac{K_mK_g}{T_m}
-%\end{matrix}V_m
-%$$
-%\\\\
+avec U=Vm , Y=Vs, X est le vecteur d'état\\
+D'où: Il n y a  pas de transfert direct en boucle ouvert car D=0\\
+alors: $$y=[1\quad0].X$$ 
 
-%avec $U=V_m , Y=v_s$, X est le vecteur d'état$\\
-%D'où:\\
-%$système en boucle ouverte $ \Longrightarrow $pas de transfert direct D=0$\\
-%$$y=[1\quad0].X$$
-%\paragraph{Présentation du pendule inversé :} La Figure 1 donne une représentation schématique du pendule. Le bras est relié au moteur, qui entraîne la rotation du bras et donc du pendule. Il a une longueur L{r} et un moment d'inertie J{r} . Nous noterons son angle $\theta$ . Le pendule, quant à lui, est axé au bout du bras. Il a une longueur L{p}. Son moment d'inertie au centre de masse est noté J{p}. On note l'angle que fait l'axe du pendule avec l'axe verticale a (en radian).
 
-%\begin{center}
-%\includegraphics[scale=0.5]{pondule.png}
-%\captionof{figure}{\textit{Composant du pendule}}
-%\label{fig1} 
-%\end{center}
+
+\subsection{Détermination des pont d’équilibre lorsque $v_m$(t) est constante, et L’étude de stabilité }
 
 
 
@@ -304,77 +279,7 @@ Et par identification avec le polynôme P($\lambda$) et en tenant compte des val
 
 \section{Calcul des paramètres du retour d'état en utilisant la forme compagne de commande :}
 
-\subsubsection{Loi de commande de la forme compagne de commande }
 
-\subsubsection{Déterminer l'expression du modèle}
-Le modèle d'espace d'état sous la forme compagne de commande est:\\
-\begin{itemize}
-Matrice d'état:$A_{cbf}=A_c-B_ck_c$\\
-\end{itemize}
-\begin{itemize}
-Matrice de commande:$B_{cbf}=B_cN$\\
-\end{itemize}
-\begin{itemize}
-Matrice de sortie:$C_{cbf}=C_c$ ;\quad Matrice de transfert $D_{cbf}=0$\\
-\end{itemize}
-\subsubsection{Expression de la matrice d'état ou matrice dynamique en fonction de K_{1c} et K_{2c}}
-\\
-Avant de déterminer la forme compagne de $A_{cbf}$, nous allons determiné la forme compagne de A et B (A_c,B_c).\\
-A partir de l'expression du polynôme caractéristique qui est: $ P(\lambda)=\lambda^2+\frac{1}{T_m}\lambda$, nous avons \\
-A_c=\begin{bmatrix}
-0&1\\
-0&-\frac{1}{T_m}
-\end{bmatrix}
-\quad B_c=\begin{bmatrix}
-0\\1
-\end{bmatrix}
-\\\\
-$A_{cbf}=A_c-B_ck_c$\\
-$A_{cbf}$=\begin{bmatrix}
-0&1\\
-0&-\frac{1}{T_m}
-\end{bmatrix}
-- \begin{bmatrix}
-0\\1
-\end{bmatrix}. \begin{bmatrix}
-K_{1c}&K_{2c}
-\end{bmatrix}
-\\\\
-\Longleftrightarrow \quad
-$A_{cbf}$=\begin{bmatrix}
-0&1\\
--K_{1c}&-\frac{1}{T_m}.K_{2c}
-\end{bmatrix}
-\\
-Nous voulons placer les valeurs propres à $p_1,p_2=-2.4\pm 5.5j$
-on aura donc la caractéristique suivante:\\
-P(\lambda)={\lambda}^2+4.8\lambda+36.01\\
-
-par identification des élements des matrices on a:\\
-\begin{bmatrix}
-0&1\\
--K_{1c}&-\frac{1}{T_m}.K_{2c}
-\end{bmatrix}=\begin{bmatrix}
-0&1\\
--36.01&-4.8
-\end{bmatrix}
-\\\\
-  
-On trouve $K_{1c}=36.01$ et $K_{2c}=1.467$ avec de K_m=7 et T_m=0.3\\
-$K=K_c.P^{-1}$ \\
-\\
-Nous trouvons K=\begin{bmatrix}
-1.378&0.598
-\end{bmatrix}
-\\
-\\
-\begin{center}
-\Rightarrow N=1.38\\
-\end{center}
-	
-		
-		
-		
 
 
 
