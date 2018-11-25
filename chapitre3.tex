@@ -1,0 +1,55 @@
+%%**********************Partie 3 *********************** 
+
+
+ \chapter{MISE EN PLACE D’UN RETOUR D’ÉTAT ET D’UN PRÉ-COMPENSATEUR}
+
+L'asservissement de position du système $S_{v_{m}\longmapsto v_{s}}$ , est réalisé selon la loi de commande par retour d'état :\\
+ $v_{m}(t)=Nk_{e}\theta_{r}(t)-Kx(t)=Nv_{r}(t)-Kx(t)$ , avec : $K=[k_{1} \hspace{2mm} k_{2}]$.\\\\
+ 
+ \section{Calcul des paramètre du retour d'état dans la base initial :}
+ 
+\subsection{Détermination de l'expression du système ($A_{bf}$, $B_{bf}$, $C_{bf}$ et $D_{bf}$) :}
+
+D'après notre système on a l'expression :\\
+\\\\
+$\dot{x}=Ax+Bv_{m}=Ax+B(Nv_{r}-Kx)=(A-BK)x+BNv_{r}$
+\\\\
+On obtient alors notre matrice dynamique \quad $A_{bf}$=(A-BK)\\
+\\
+et : \quad $B_{bf}$=B.N \\
+ et :\quad $C_{bf}$=[1 0] \\
+ et :\quad $D_{bf}$=[0] \\\\\\\\\\
+
+\subsection{L'expression de $A_{bf}$ en fonction de $[k_{1}$,$k_{2}]$ : }
+
+On a $A_{bf}$=(A-BK),  avec: $K=[k_{1} \hspace{2mm} k_{2}]$
+D'ou :\\\\
+$A_{bf}=
+\begin{bmatrix} 
+0 & \frac{K_{s}}{9K_{g}} \\
+-\frac{K_{g}K_{m}}{T_{m}}.k_{2} & -\frac{K_{g}K_{m}}{T_{m}}.k_{2}-\frac{1}{T_{m}}
+\end{bmatrix}$ \\\\
+
+\subsection{Justification la possibilité de placer les V.P de la matrice $A_{bf}$ et calcul de K :}
+
+On a les valeurs propres : $v_{1},v_{2}=-2.4\pm5.5j$ \\
+et:\\
+$A_{bf}=
+\begin{bmatrix} 
+0 & \frac{K_{s}}{9K_{g}} \\
+-\frac{K_{g}K_{m}}{T_{m}}.k_{2} & -\frac{K_{g}K_{m}}{T_{m}}.k_{2}-\frac{1}{T_{m}}
+\end{bmatrix}$ \\\\
+
+L'expression du polynôme caractéristique est:\\
+P($\lambda$)=$\lambda^2+(\frac{1}{T_{m}}-\frac{K_{g}K_{m}}{T_{m}}.k_{2})\lambda+\frac{K_{s}}{9K_{g}}.\frac{K_{g}K_{m}}{T_{m}}.k_{1}$\\\\
+
+On place les valeurs propres à $p_{1},p_{2}=-2.4\pm5.5j$\\
+
+On obtient alors le polynôme suivant: \\\\
+$(\lambda+2.4+5.5j)(\lambda+2.4-5.5j)={\lambda}^2+4.8\lambda+36.01$\\\\
+
+Et par identification avec le polynôme P($\lambda$) et en tenant compte des valeurs expérimentales de $K_{g} K_{m} K_{s}$ et$T_{m}$ , on trouve alors:  $k_1$=1.389à \quad $k_2$=0.5986 \hyperref[section1.1]{(voir Annexe)}\label{annexe1}\\
+
+
+
+\section{Calcul des paramètres du retour d'état en utilisant la forme compagne de commande :}

@@ -150,71 +150,14 @@
 
 
 
-%*********************** INTRODUCTION **************
-\chapter*{Introduction}Dans ce TP on va réaliser un asservissement de position ,on va utiliser pour cette manipulation la platine voir   la Figure 1.1.
-\addcontentsline{toc}{chapter}{Introduction}
 
-\begin{center}
-\includegraphics[scale=0.5]{fiiig1.png}
-\captionof{figure}{\textit{Asservissement de position par calculateur}}
-\label{fig1} 
-\end{center}
-
-Les valeurs numériques des coefficients connus sont:\\
-
- $K_e=10(V.tr^-1)$	 \hfill		$K_s=10(V.tr^-1)$	\hfill		$Kg=0.105(V.s.tr^-1)$ 
  
- 
-    \chapter{ PRÉLIMINAIRE DU PROCÉDÉ}
-     \section{Représentation et analyse de ensemble (moteur, réducteur, potentiomètre, génératrice        tachymétrique) pour le système $ {S_V}_m \rightarrow V_S$ }
- 
-
-\begin{center}
-\includegraphics[scale=0.5]{fiiig2.png}
-\captionof{figure}{\textit{ Eléments de la platine "asservissement de positon"}}
-\label{fig1} 
-\end{center}
-
-On considère le système en boucle ouverte l’entrée du système on boucle ouvert est $V_m(t)$ et la sortie mesurée $V_s(t)$, que l’on note  par $ {S_V}_m \rightarrow V_S$.
-
-
-\subsection{la représentation d’état de ce système, lorsque son vecteur d’état est défni par:}
-
-
-\begin{equation}
-x(t)={(x_1(t),x_2(t))}^T={(V_s(t),V_g(t))}^T
-\end{equation}
-$x_1=V_s$ et $x_2=V_g$
-\\\\
-
-
-$x_1=\frac{K_s}{9p}\frac{x_2}{K_g}$\\
-$\frac{x_2}{K_g}=\frac{K_m}{1+T_m}$
-\\
-\\
-
-\begin{equation*}
-\left\{\begin{matrix}
-\dot{x}(t)=Ax(t)+Bu(t)\\ 
-y(t)=Cx(t)+Du(t)\\
-\end{matrix}\right.
-\end{equation*}   
-
-%%%%%%%%%%%comment je vais faire les []%%%%%%%%%
-$\dot{X}$=$$\begin{matrix}0&\frac{K_s}{9K_g}\\0&-\frac{1}{T_m}\end{matrix}x$$
-\quad+\quad $$\begin{matrix}0
-\frac{K_mK_g}{T_m}
-\end{matrix}V_m
-$$
-\\\\
-
-avec U=Vm , Y=Vs, X est le vecteur d'état\\
-D'où: Il n y a  pas de transfert direct en boucle ouvert car D=0\\
-alors: $$y=[1\quad0].X$$ 
-
-
-
-\subsection{Détermination des pont d’équilibre lorsque $v_m$(t) est constante, et L’étude de stabilité }
+ \input{introduction.tex}
+ \input{chapitre1.tex}
+ \input{chapitre2.tex}
+ \input{chapitre3.tex}
+ \input{Conclusion.tex}
+   
 
 
 
@@ -223,71 +166,10 @@ alors: $$y=[1\quad0].X$$
 
 
 
-%%**********************Partie 3 *********************** 
-
-
- \chapter{MISE EN PLACE D’UN RETOUR D’ÉTAT ET D’UN PRÉ-COMPENSATEUR}
-
-L'asservissement de position du système $S_{v_{m}\longmapsto v_{s}}$ , est réalisé selon la loi de commande par retour d'état :\\
- $v_{m}(t)=Nk_{e}\theta_{r}(t)-Kx(t)=Nv_{r}(t)-Kx(t)$ , avec : $K=[k_{1} \hspace{2mm} k_{2}]$.\\\\
- 
- \section{Calcul des paramètre du retour d'état dans la base initial :}
- 
-\subsection{Détermination de l'expression du système ($A_{bf}$, $B_{bf}$, $C_{bf}$ et $D_{bf}$) :}
-
-D'après notre système on a l'expression :\\
-\\\\
-$\dot{x}=Ax+Bv_{m}=Ax+B(Nv_{r}-Kx)=(A-BK)x+BNv_{r}$
-\\\\
-On obtient alors notre matrice dynamique \quad $A_{bf}$=(A-BK)\\
-\\
-et : \quad $B_{bf}$=B.N \\
- et :\quad $C_{bf}$=[1 0] \\
- et :\quad $D_{bf}$=[0] \\\\\\\\\\
-
-\subsection{L'expression de $A_{bf}$ en fonction de $[k_{1}$,$k_{2}]$ : }
-
-On a $A_{bf}$=(A-BK),  avec: $K=[k_{1} \hspace{2mm} k_{2}]$
-D'ou :\\\\
-$A_{bf}=
-\begin{bmatrix} 
-0 & \frac{K_{s}}{9K_{g}} \\
--\frac{K_{g}K_{m}}{T_{m}}.k_{2} & -\frac{K_{g}K_{m}}{T_{m}}.k_{2}-\frac{1}{T_{m}}
-\end{bmatrix}$ \\\\
-
-\subsection{Justification la possibilité de placer les V.P de la matrice $A_{bf}$ et calcul de K :}
-
-On a les valeurs propres : $v_{1},v_{2}=-2.4\pm5.5j$ \\
-et:\\
-$A_{bf}=
-\begin{bmatrix} 
-0 & \frac{K_{s}}{9K_{g}} \\
--\frac{K_{g}K_{m}}{T_{m}}.k_{2} & -\frac{K_{g}K_{m}}{T_{m}}.k_{2}-\frac{1}{T_{m}}
-\end{bmatrix}$ \\\\
-
-L'expression du polynôme caractéristique est:\\
-P($\lambda$)=$\lambda^2+(\frac{1}{T_{m}}-\frac{K_{g}K_{m}}{T_{m}}.k_{2})\lambda+\frac{K_{s}}{9K_{g}}.\frac{K_{g}K_{m}}{T_{m}}.k_{1}$\\\\
-
-On place les valeurs propres à $p_{1},p_{2}=-2.4\pm5.5j$\\
-
-On obtient alors le polynôme suivant: \\\\
-$(\lambda+2.4+5.5j)(\lambda+2.4-5.5j)={\lambda}^2+4.8\lambda+36.01$\\\\
-
-Et par identification avec le polynôme P($\lambda$) et en tenant compte des valeurs expérimentales de $K_{g} K_{m} K_{s}$ et$T_{m}$ , on trouve alors:  $k_1$=1.389à \quad $k_2$=0.5986 \hyperref[section1.1]{(voir Annexe)}\label{annexe1}\\
-
-
-
-\section{Calcul des paramètres du retour d'état en utilisant la forme compagne de commande :}
 
 
 
 
-
-%%******************* Coclusion
-\chapter*{Conclusion}
-\addcontentsline{toc}{chapter}{Conclusion}
-
-Ce TP nous a permet d'utiliser les différentes commandes de robustesse et a appris de définir un correcteur par étapes, cela en vérifiant chaque contrainte pour déterminer un meilleur correcteur.\\
 
 
 
