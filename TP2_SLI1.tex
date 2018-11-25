@@ -165,8 +165,8 @@ Les valeurs numériques des coefficients connus sont:\\
  $K_e=10(V.tr^-1)$	 \hfill		$K_s=10(V.tr^-1)$	\hfill		$Kg=0.105(V.s.tr^-1)$ 
  
  
-    \section{ÉTUDE PRÉLIMINAIRE DU PROCÉDÉ}
-     \subsection{Représentation et analyse de ensemble (moteur, réducteur, potentiomètre, génératrice        tachymétrique) pour le système $ {S_V}_m \rightarrow V_S$ }
+    \chapter{ PRÉLIMINAIRE DU PROCÉDÉ}
+     \section{Représentation et analyse de ensemble (moteur, réducteur, potentiomètre, génératrice        tachymétrique) pour le système $ {S_V}_m \rightarrow V_S$ }
  
 
 \begin{center}
@@ -178,7 +178,7 @@ Les valeurs numériques des coefficients connus sont:\\
 On considère le système en boucle ouverte l’entrée du système on boucle ouvert est $V_m(t)$ et la sortie mesurée $V_s(t)$, que l’on note  par $ {S_V}_m \rightarrow V_S$.
 
 
-\subsubsection{la représentation d’état de ce système, lorsque son vecteur d’état est défni par:}
+\subsection{la représentation d’état de ce système, lorsque son vecteur d’état est défni par:}
 
 
 \begin{equation}
@@ -192,56 +192,47 @@ $x_1=\frac{K_s}{9p}\frac{x_2}{K_g}$\\
 $\frac{x_2}{K_g}=\frac{K_m}{1+T_m}$
 \\
 \\
-$K_{haut}$=
-$$
-\begin{matrix}
--4.4472 &  36.9886  & -3.3994 &   5.3447
-\end{matrix} 
-$$     
+
 \begin{equation*}
-      \left\{
-         \begin{aligned}
-           k\,\frac{\mathrm{d}T}{\mathrm{d}t}&=S(1-\alpha)-\sigma_{eff}T^4-k_w\frac{\mathrm{d}W_s}{\mathrm{d}t} & (1)\\
-           \frac{\mathrm{d}C_a}{\mathrm{d}t}&=-P+mC_s+e(t) & (2) \\
-           \frac{\mathrm{d}C_s}{\mathrm{d}t}&=P-mC_s & (3) \\
-           \frac{\mathrm{d}W_a}{\mathrm{d}t}&=-H+E & (4) \\
-           \frac{\mathrm{d}W_s}{\mathrm{d}t}&=H-E & (5)
-         \end{aligned}
-      \right.
-    \end{equation*}
-%\left\lbrace
-%\begin{array}{1}
-%$dot{x}$=$$A.x+B.u \\
-%y=C.x+D.u 
-%\end{array}$$
+\left\{\begin{matrix}
+\dot{x}(t)=Ax(t)+Bu(t)\\ 
+y(t)=Cx(t)+Du(t)\\
+\end{matrix}\right.
+\end{equation*}   
 
-%\\
+%%%%%%%%%%%comment je vais faire les []%%%%%%%%%
+$\dot{X}$=$$\begin{matrix}0&\frac{K_s}{9K_g}\\0&-\frac{1}{T_m}\end{matrix}x$$
+\quad+\quad $$\begin{matrix}0
+\frac{K_mK_g}{T_m}
+\end{matrix}V_m
+$$
+\\\\
 
-%$\dot{X}$=$$
-%\begin{matrix}
-%0&\frac{K_s}{9K_g}\\0&-\frac{1}{T_m}
-%\end{matrix}x$$
-%$$\quad+\quad
-%\$begin{matrix}
-%0\\
-%\frac{K_mK_g}{T_m}
-%\end{matrix}V_m
-%$$
-%\\\\
+avec U=Vm , Y=Vs, X est le vecteur d'état\\
+D'où: Il n y a  pas de transfert direct en boucle ouvert car D=0\\
+alors: $$y=[1\quad0].X$$ 
 
-%avec $U=V_m , Y=v_s$, X est le vecteur d'état$\\
-%D'où:\\
-%$système en boucle ouverte $ \Longrightarrow $pas de transfert direct D=0$\\
-%$$y=[1\quad0].X$$
-%\paragraph{Présentation du pendule inversé :} La Figure 1 donne une représentation schématique du pendule. Le bras est relié au moteur, qui entraîne la rotation du bras et donc du pendule. Il a une longueur L{r} et un moment d'inertie J{r} . Nous noterons son angle $\theta$ . Le pendule, quant à lui, est axé au bout du bras. Il a une longueur L{p}. Son moment d'inertie au centre de masse est noté J{p}. On note l'angle que fait l'axe du pendule avec l'axe verticale a (en radian).
 
-%\begin{center}
-%\includegraphics[scale=0.5]{pondule.png}
-%\captionof{figure}{\textit{Composant du pendule}}
-%\label{fig1} 
-%\end{center}
 
+\subsection{Détermination des pont d’équilibre lorsque $v_m$(t) est constante, et L’étude de stabilité }
+
+\begin{center}
+$\dot{X}_eq=0$
+\end{center}
+
+\begin{center}
+$x_2=0 $\\
+$x_2=K_g.K_m.V_m$ \\
+\end{center}
+
+\begin{center}
+si $V_m$ $\ne $0 donc il n y a pas de point d'équilibre \\
+si $V_m$=0 alors\\
+ $\dot{X}_eq=$ \end{center}$$\begin{pmatrix} 0\\\alpha \end{pmatrix}$$
  
+ \begin{center}
+avec $\alpha$ $\in$ R
+\end{center}
 
 
 %%******************* Coclusion
