@@ -1,5 +1,6 @@
 %Farid
-\chapter{COMPARAISON AVEC UN ASSERVISSEMENT AVEC CORRECTION PROPORTIONNELLLE ET RETOUR TACHYMETRIQUE}
+\chapter{Comparaison avec un Asservissement avec Correction Proportionnelle  et Retour Tachymétrique }
+\chaptermark{Comparaison} 
 \subsection{Retour de sortie avec correcteur proportionnelle}
 
 on considère l'asservissement de position:\\
@@ -84,3 +85,26 @@ Avec la commande MATLAB "rlocus" ce qui nous as permet de  tracer le lieu sur le
 \captionof{figure}{\textit Lieu des pôles de l'asservissement}
 \label{fig4} 
 \end{center}
+
+\subsection{Mise en place d'une contre réaction tachymétrique}
+
+
+\begin{center}
+\includegraphics[scale=0.5]{fiiig5.png} 
+\captionof{figure}{\textit Asservissement de position avec contre-réaction tachymétrique}
+\end{center}
+On met un correcteur tachymétrique dans le schéma précédent.
+
+\subsection{Fonction de transfert de la boucle interne de vitesse}
+
+$\omega_m=\frac{(\frac{K_m}{1+K_gk_1'K_m})}{1+(\frac{T_m}{1+K_gk_1'K_m})p}$
+
+$\Rightarrow K_0$=$\frac{K_m}{1+K_gk_2'K_m}$ 
+ $\tau$=$\frac{T_m}{1+K_gk_2'K_m}$
+
+
+%
+%$\omega_m=\frac{(\frac{K_m}{1+K_gk_1'K_m})}{1+(\frac{T_m}{1+K_gk_1'K_m})p}$
+%\\
+%
+%\Rightarrow $K_0=\frac{K_m}{1+K_gk_2'K_m}$ et $\tau=\frac{T_m}{1+K_gk_2'K_m}$
